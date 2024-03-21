@@ -25,6 +25,7 @@ public class BookLender {
         System.out.println(pr.getPersonInformation());
         // Display book information after borrowing a book
         System.out.println(bk.getBookInformation());
+        //*****//***//**//**/*/*/*/*/
 
     }
 
