@@ -1,22 +1,27 @@
 package se.lexicon.model;
 
+import java.util.UUID;
+
 public class Book {
     private String id;
     private String title;
     private String author;
-    private String available;
+    private boolean available;
 
 
     public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
+       this(title,author,null);
     }
     public Book(String title, String author, Person borrower) {
-        this.title = title;
-        this.author = author;
+        setTitle(title);
+        setAuthor(author);
+        setId();
+        setAvailable(true);
+
     }
     public String getBookInformation(){
-            return "";
+            String strInfo = "id" + ", " + getId() +"title: " +getTitle() + ", " + "author: " + getAuthor() + ", " + "available: " + getAvailable();
+            return strInfo;
     }
 
     public String getId() {
@@ -31,23 +36,27 @@ public class Book {
         return author;
     }
 
-    public String getAvailable() {
+    public boolean getAvailable() {
         return available;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId() {
+
+            UUID uuid = UUID.randomUUID();
+            this.id = uuid.toString();
     }
 
     public void setTitle(String title) {
+        if(title == null || title.trim().isEmpty()) throw new IllegalArgumentException("Title cannot be null or empty");
         this.title = title;
     }
 
     public void setAuthor(String author) {
+        if(author == null || author.trim().isEmpty()) throw new IllegalArgumentException("Author can not be null or empty");
         this.author = author;
     }
 
-    public void setAvailable(String available) {
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 }
