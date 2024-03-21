@@ -1,11 +1,13 @@
 package se.lexicon;
+import se.lexicon.model.*;
 
-
-public class App {
+public class BookLender {
     public static void main(String[] args) {
         // todo: needs completion
 
         // Create a book instance
+        Book bk = new Book("Bamse på äventyr","Astrid");
+        bk.getBookInformation();
         // Display book information
 
         // Create a person instance
